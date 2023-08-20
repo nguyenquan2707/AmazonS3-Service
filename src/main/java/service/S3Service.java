@@ -16,9 +16,9 @@ public class S3Service {
         String bucketName = "example";
         createBucket(bucketName);
         System.out.println("Bucket has been created with name: " + bucketName);
-        uploadFileToS3();
+//        uploadFileToS3();
         System.out.println("Files have been uploaded to the bucket");
-        downloadFilesFromS3();
+//        downloadFilesFromS3();
         System.out.println("Files have been downloaded from the bucket");
     }
 
@@ -28,7 +28,9 @@ public class S3Service {
         try {
             AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
                     .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(
-                            "http://localhost:4566","us-east-2")).enablePathStyleAccess()
+//                            "http://localhost:4566","us-east-2")).enablePathStyleAccess()
+//                            "http://localhost:9000","us-east-2")).enablePathStyleAccess()
+                            "http://localhost:9001","us-east-2")).enablePathStyleAccess()
                         .build();
            //if (!s3Client.doesBucketExistV2(bucketName)) {
 // Because the CreateBucketRequest object doesn't specify a region, the
@@ -54,7 +56,8 @@ public class S3Service {
     {
         String bucketName = "example";
         String fileName = "examplefile.txt";
-        String filePath = "C:\\Users\\DELL\\OneDrive\\Desktop\\s3Sample\\" + fileName;
+//        String filePath = "C:\\Users\\DELL\\OneDrive\\Desktop\\s3Sample\\" + fileName;
+        String filePath = "classpath:" + fileName;
         AmazonS3 client = AmazonS3ClientBuilder.standard().withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(
                 "http://localhost:4566",
                 "us-east-2")).enablePathStyleAccess().build();
